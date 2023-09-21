@@ -26,7 +26,7 @@ void osam_free_global_var(osam_monty_global_t global_var)
  * start_vglo - initializes the global variables
  *
  * @file_desc: file descriptor
- * Return: no return
+ * Return: void
  */
 void osam_start_global_var(FILE *file_desc, osam_monty_global_t *global_var)
 {

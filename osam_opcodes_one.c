@@ -5,16 +5,19 @@
  *
  * @doubly: head of the linked list
  * @curr_line: line number
- * Return: no return
+ * Return: void
  */
 void _osam_push(stack_t **doubly, unsigned int curr_line)
 {
+    char *message;
     int n, j;
 
     if (!osam_global_var.arg)
     {
-        dprintf(2, "L%u: ", curr_line);
-        dprintf(2, "usage: push integer\n");
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: usage: push integer\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
@@ -23,8 +26,10 @@ void _osam_push(stack_t **doubly, unsigned int curr_line)
     {
         if (!isdigit(osam_global_var.arg[j]) && osam_global_var.arg[j] != '-')
         {
-            dprintf(2, "L%u: ", curr_line);
-            dprintf(2, "usage: push integer\n");
+            message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+            snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: usage: push integer\n", curr_line);
+            osam_print_out(message, 2);
+            free(message);
             osam_free_global_var(osam_global_var);
             exit(EXIT_FAILURE);
         }
@@ -43,7 +48,7 @@ void _osam_push(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line numbers
- * Return: no return
+ * Return: void
  */
 void _osam_pall(stack_t **doubly, unsigned int curr_line)
 {
@@ -64,16 +69,19 @@ void _osam_pall(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line number
- * Return: no return
+ * Return: void
  */
 void _osam_pint(stack_t **doubly, unsigned int curr_line)
 {
+    char *message;
     (void)curr_line;
 
     if (*doubly == NULL)
     {
-        dprintf(2, "L%u: ", curr_line);
-        dprintf(2, "can't pint, stack empty\n");
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't pint, stack empty\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
@@ -86,15 +94,19 @@ void _osam_pint(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line number
- * Return: no return
+ * Return: void
  */
 void _osam_pop(stack_t **doubly, unsigned int curr_line)
 {
+    char *message;
     stack_t *aux;
 
     if (doubly == NULL || *doubly == NULL)
     {
-        dprintf(2, "L%u: can't pop an empty stack\n", curr_line);
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't pop an empty stack\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
@@ -108,10 +120,11 @@ void _osam_pop(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line number
- * Return: no return
+ * Return: void
  */
 void _osam_swap(stack_t **doubly, unsigned int curr_line)
 {
+    char *message;
     int m = 0;
     stack_t *aux = NULL;
 
@@ -122,7 +135,11 @@ void _osam_swap(stack_t **doubly, unsigned int curr_line)
 
     if (m < 2)
     {
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
         dprintf(2, "L%u: can't swap, stack too short\n", curr_line);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't swap, stack too short\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }

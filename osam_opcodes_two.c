@@ -5,7 +5,7 @@
  *
  * @doubly: head of the linked list
  * @curr_line: line number;
- * Return: no return
+ * Return: void
  */
 void _osam_queue(stack_t **doubly, unsigned int curr_line)
 {
@@ -20,7 +20,7 @@ void _osam_queue(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line number;
- * Return: no return
+ * Return: void
  */
 void _osam_stack(stack_t **doubly, unsigned int curr_line)
 {
@@ -35,7 +35,7 @@ void _osam_stack(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line number;
- * Return: no return
+ * Return: void
  */
 void _osam_add(stack_t **doubly, unsigned int curr_line)
 {
@@ -64,7 +64,7 @@ void _osam_add(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line number;
- * Return: no return
+ * Return: void
  */
 void _osam_nop(stack_t **doubly, unsigned int curr_line)
 {
@@ -77,7 +77,7 @@ void _osam_nop(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line number;
- * Return: no return
+ * Return: void
  */
 void _osam_sub(stack_t **doubly, unsigned int curr_line)
 {

@@ -5,7 +5,7 @@
  *
  * @doubly: head of the linked list
  * @curr_line: line number;
- * Return: no return
+ * Return: void
  */
 void _osam_div(stack_t **doubly, unsigned int curr_line)
 {
@@ -41,7 +41,7 @@ void _osam_div(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line number;
- * Return: no return
+ * Return: void
  */
 void _osam_mul(stack_t **doubly, unsigned int curr_line)
 {
@@ -71,7 +71,7 @@ void _osam_mul(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line number;
- * Return: no return
+ * Return: void
  */
 void _osam_mod(stack_t **doubly, unsigned int curr_line)
 {
@@ -106,7 +106,7 @@ void _osam_mod(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line number;
- * Return: no return
+ * Return: void
  */
 void _osam_pchar(stack_t **doubly, unsigned int curr_line)
 {
@@ -130,7 +130,7 @@ void _osam_pchar(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line number;
- * Return: no return
+ * Return: void
  */
 void _osam_pstr(stack_t **doubly, unsigned int curr_line)
 {

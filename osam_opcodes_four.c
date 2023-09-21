@@ -5,7 +5,7 @@
  *
  * @doubly: head of the linked list
  * @curr_line: line number;
- * Return: no return
+ * Return: void
  */
 void _osam_rotl(stack_t **doubly, unsigned int curr_line)
 {
@@ -37,7 +37,7 @@ void _osam_rotl(stack_t **doubly, unsigned int curr_line)
  *
  * @doubly: head of the linked list
  * @curr_line: line number
- * Return: no return
+ * Return: void
  */
 void _osam_rotr(stack_t **doubly, unsigned int curr_line)
 {
