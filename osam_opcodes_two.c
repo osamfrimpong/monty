@@ -50,13 +50,13 @@ void _osam_add(stack_t **doubly, unsigned int curr_line)
     if (m < 2)
     {
         dprintf(2, "L%u: can't add, stack too short\n", curr_line);
-        free_osam_global_var();
+        osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
 
     aux = (*doubly)->next;
     aux->n += (*doubly)->n;
-    _pop(doubly, curr_line);
+    _osam_pop(doubly, curr_line);
 }
 
 /**
@@ -92,11 +92,11 @@ void _osam_sub(stack_t **doubly, unsigned int curr_line)
     if (m < 2)
     {
         dprintf(2, "L%u: can't sub, stack too short\n", curr_line);
-        free_osam_global_var();
+        osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
 
     aux = (*doubly)->next;
     aux->n -= (*doubly)->n;
-    _pop(doubly, curr_line);
+    _osam_pop(doubly, curr_line);
 }
