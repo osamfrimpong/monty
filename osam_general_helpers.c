@@ -89,7 +89,7 @@ void (*find_osam_opcode(char *opcode))(stack_t **stack, unsigned int line_number
 
 	for (i = 0; instruct[i].opcode; i++)
 	{
-		if (_strcmp(instruct[i].opcode, opcode) == 0)
+		if (strcmp(instruct[i].opcode, opcode) == 0)
 			break;
 	}
 
