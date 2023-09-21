@@ -66,6 +66,7 @@ typedef struct globals
 extern osam_monty_global_t osam_global_var;
 
 /* general utilities functions*/
+void osam_print_out(char *message, int message_type);
 void osam_free_global_var(osam_monty_global_t global_var);
 void osam_start_global_var(FILE *file_desc, osam_monty_global_t *global_var);
 FILE *osam_check_input(int argc, char *argv[]);

@@ -93,7 +93,7 @@ void _osam_mod(stack_t **doubly, unsigned int curr_line)
     if ((*doubly)->n == 0)
     {
         dprintf(2, "L%u: division by zero\n", curr_line);
-        free_osam_global_var();
+        osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
 

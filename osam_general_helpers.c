@@ -1,6 +1,17 @@
 #include "monty.h"
 
 /**
+ * osam_print_out - prints to terminal
+ * @error_message: pointer to message to write
+ * Return: void
+*/
+
+void osam_print_out(char *message, int message_type)
+{
+	write(message_type, message, strlen(message));
+}
+
+/**
  * osam_free_global_var - frees the global variables
  * Return: void
  */
