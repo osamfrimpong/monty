@@ -1,5 +1,6 @@
 #include "monty.h"
 
+osam_monty_global_t osam_global_var;
 
 /**
  * main - Entry point
@@ -10,7 +11,6 @@
  */
 int main(int argc, char *argv[])
 {
-	osam_monty_global_t osam_global_var;
 	void (*f)(stack_t **stack, unsigned int line_number);
 	FILE *file_desc;
 	size_t size = 256;
