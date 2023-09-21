@@ -9,6 +9,7 @@
  */
 void _osam_div(stack_t **doubly, unsigned int curr_line)
 {
+    char *message;
     int m = 0;
     stack_t *aux = NULL;
 
@@ -19,14 +20,20 @@ void _osam_div(stack_t **doubly, unsigned int curr_line)
 
     if (m < 2)
     {
-        dprintf(2, "L%u: can't div, stack too short\n", curr_line);
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't div, stack too short\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
 
     if ((*doubly)->n == 0)
     {
-        dprintf(2, "L%u: division by zero\n", curr_line);
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: division by zero\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
@@ -45,6 +52,7 @@ void _osam_div(stack_t **doubly, unsigned int curr_line)
  */
 void _osam_mul(stack_t **doubly, unsigned int curr_line)
 {
+    char *message;
     int m = 0;
     stack_t *aux = NULL;
 
@@ -55,7 +63,11 @@ void _osam_mul(stack_t **doubly, unsigned int curr_line)
 
     if (m < 2)
     {
-        dprintf(2, "L%u: can't mul, stack too short\n", curr_line);
+       
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't mul, stack too short\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
@@ -75,6 +87,7 @@ void _osam_mul(stack_t **doubly, unsigned int curr_line)
  */
 void _osam_mod(stack_t **doubly, unsigned int curr_line)
 {
+    char *message;
     int m = 0;
     stack_t *aux = NULL;
 
@@ -85,14 +98,20 @@ void _osam_mod(stack_t **doubly, unsigned int curr_line)
 
     if (m < 2)
     {
-        dprintf(2, "L%u: can't mod, stack too short\n", curr_line);
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't mod, stack too short\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
 
     if ((*doubly)->n == 0)
     {
-        dprintf(2, "L%u: division by zero\n", curr_line);
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: division by zero\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
@@ -110,15 +129,22 @@ void _osam_mod(stack_t **doubly, unsigned int curr_line)
  */
 void _osam_pchar(stack_t **doubly, unsigned int curr_line)
 {
+    char *message;
     if (doubly == NULL || *doubly == NULL)
     {
-        dprintf(2, "L%u: can't pchar, stack empty\n", curr_line);
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't pchar, stack empty\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
     if ((*doubly)->n < 0 || (*doubly)->n >= 128)
     {
-        dprintf(2, "L%u: can't pchar, value out of range\n", curr_line);
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't pchar, value out of range\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }

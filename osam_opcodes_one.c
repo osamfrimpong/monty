@@ -136,7 +136,6 @@ void _osam_swap(stack_t **doubly, unsigned int curr_line)
     if (m < 2)
     {
         message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
-        dprintf(2, "L%u: can't swap, stack too short\n", curr_line);
         snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't swap, stack too short\n", curr_line);
         osam_print_out(message, 2);
         free(message);

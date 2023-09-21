@@ -39,6 +39,7 @@ void _osam_stack(stack_t **doubly, unsigned int curr_line)
  */
 void _osam_add(stack_t **doubly, unsigned int curr_line)
 {
+    char *message;
     int m = 0;
     stack_t *aux = NULL;
 
@@ -49,7 +50,10 @@ void _osam_add(stack_t **doubly, unsigned int curr_line)
 
     if (m < 2)
     {
-        dprintf(2, "L%u: can't add, stack too short\n", curr_line);
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't add, stack too short\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
@@ -81,6 +85,7 @@ void _osam_nop(stack_t **doubly, unsigned int curr_line)
  */
 void _osam_sub(stack_t **doubly, unsigned int curr_line)
 {
+    char *message;
     int m = 0;
     stack_t *aux = NULL;
 
@@ -91,7 +96,10 @@ void _osam_sub(stack_t **doubly, unsigned int curr_line)
 
     if (m < 2)
     {
-        dprintf(2, "L%u: can't sub, stack too short\n", curr_line);
+        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't sub, stack too short\n", curr_line);
+        osam_print_out(message, 2);
+        free(message);
         osam_free_global_var(osam_global_var);
         exit(EXIT_FAILURE);
     }
