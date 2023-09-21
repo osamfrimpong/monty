@@ -11,6 +11,7 @@
 #include <fcntl.h>
 #include <ctype.h>
 
+#define OSAM_MAX_BUFFER_SIZE 1024
 /**
  * struct stack_s - d_linked_list_head linked list representation of a stack (or queue)
  * @n: integer

@@ -15,7 +15,7 @@ stack_t *osam_add_node_end(stack_t **head, const int n)
 	temp = malloc(sizeof(stack_t));
 	if (!temp)
 	{
-		dprintf(2, "Error: malloc failed\n");
+		osam_print_out("Error: malloc failed\n", 2);
 		osam_free_global_var(osam_global_var);
 		exit(EXIT_FAILURE);
 	}
@@ -52,7 +52,7 @@ stack_t *osam_add_node_start(stack_t **head, const int n)
 	temp = malloc(sizeof(stack_t));
 	if (!temp)
 	{
-		dprintf(2, "Error: malloc failed\n");
+		osam_print_out("Error: malloc failed\n", 2);
 		osam_free_global_var(osam_global_var);
 		exit(EXIT_FAILURE);
 	}

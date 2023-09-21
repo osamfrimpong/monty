@@ -49,10 +49,11 @@ void osam_start_global_var(FILE *file_desc, osam_monty_global_t *global_var)
 FILE *osam_check_input(int argc, char *argv[])
 {
 	FILE *file_desc;
+	char *message;
 
 	if (argc == 1 || argc > 2)
 	{
-		dprintf(2, "USAGE: monty file\n");
+		osam_print_out("USAGE: monty file\n", 2);
 		exit(EXIT_FAILURE);
 	}
 
@@ -60,7 +61,8 @@ FILE *osam_check_input(int argc, char *argv[])
 
 	if (file_desc == NULL)
 	{
-		dprintf(2, "Error: Can't open file %s\n", argv[1]);
+		snprintf(message, OSAM_MAX_BUFFER_SIZE, "Error: Can't open file %s\n", argv[1]);
+		osam_print_out(message, 2);
 		exit(EXIT_FAILURE);
 	}
 
