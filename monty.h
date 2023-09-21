@@ -73,8 +73,8 @@ FILE *osam_check_input(int argc, char *argv[]);
 /* find specific opcode function to execute*/
 void (*find_osam_opcode(char *opcode))(stack_t **stack, unsigned int line_number);
 
-void _osam_push(stack_t ****d_linked_list_head_stack, unsigned int line_number);
-void _osam_pall(stack_t ****d_linked_list_head_stack, unsigned int line_number);
+void _osam_push(stack_t **d_linked_list_head_stack, unsigned int line_number);
+void _osam_pall(stack_t **d_linked_list_head_stack, unsigned int line_number);
 void _osam_pint(stack_t **d_linked_list_head, unsigned int line_number);
 void _osam_pop(stack_t **d_linked_list_head, unsigned int line_number);
 void _osam_swap(stack_t **d_linked_list_head, unsigned int line_number);
