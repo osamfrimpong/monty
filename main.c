@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	char *lines[2] = {NULL, NULL};
 
 	file_desc = osam_check_input(argc, argv);
-	osam_start_global_var(file_desc, global_var);
+	osam_start_global_var(file_desc, &global_var);
 	nlines = getline(&global_var.text_buffer, &size, file_desc);
 	while (nlines != -1)
 	{

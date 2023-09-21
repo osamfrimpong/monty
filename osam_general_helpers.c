@@ -17,14 +17,14 @@ void osam_free_global_var(osam_monty_global_t global_var)
  * @file_desc: file descriptor
  * Return: no return
  */
-void osam_start_global_var(FILE *file_desc, osam_monty_global_t global_var)
+void osam_start_global_var(FILE *file_desc, osam_monty_global_t *global_var)
 {
-	global_var.lifo = 1;
-	global_var.curr_line = 1;
-	global_var.arg = NULL;
-	global_var.head = NULL;
-	global_var.file_desc = file_desc;
-	global_var.text_buffer = NULL;
+	global_var->lifo = 1;
+	global_var->curr_line = 1;
+	global_var->arg = NULL;
+	global_var->head = NULL;
+	global_var->file_desc = file_desc;
+	global_var->text_buffer = NULL;
 }
 
 /**
