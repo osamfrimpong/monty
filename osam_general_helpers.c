@@ -6,7 +6,7 @@
  */
 void osam_free_global_var(osam_monty_global_t global_var)
 {
-	osam(global_var.head);
+	osam_free_d_linked_list(global_var.head);
 	free(global_var.text_buffer);
 	fclose(global_var.file_desc);
 }
