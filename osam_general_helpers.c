@@ -49,7 +49,7 @@ void osam_start_global_var(FILE *file_desc, osam_monty_global_t *global_var)
 FILE *osam_check_input(int argc, char *argv[])
 {
 	FILE *file_desc;
-	char *message;
+	char *message = "";
 
 	if (argc == 1 || argc > 2)
 	{
