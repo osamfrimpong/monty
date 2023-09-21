@@ -93,7 +93,7 @@ void _osam_rotr(stack_t **d_linked_list_head, unsigned int line_number);
 
 
 /* helper functions for doubly linked lists manipulation */
-stack_t *add_dnodeint_end(stack_t **head, const int n);
-stack_t *add_dnodeint(stack_t **head, const int n);
+stack_t *osam_add_node_end(stack_t **head, const int n);
+stack_t *osam_add_node_start(stack_t **head, const int n);
 void osam_free_d_linked_list(stack_t *head);
 #endif /* MAIN_OSAM_MONTY_H_ */
