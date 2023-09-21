@@ -55,3 +55,43 @@ FILE *osam_check_input(int argc, char *argv[])
 
 	return (file_desc);
 }
+
+/**
+ * find_osam_opcode - selects the correct opcode to execute
+ *
+ * @opcode: opcode passed
+ *
+ * Return: pointer to the function that executes the opcode
+ */
+void (*find_osam_opcode(char *opcode))(stack_t **stack, unsigned int line_number)
+{
+	instruction_t instruct[] = {
+		{"push", _osam_push},
+		{"pall", _osam_pall},
+		{"pint", _osam_pint},
+		{"pop", _osam_pop},
+		{"swap", _osam_swap},
+		{"queue", _osam_queue},
+		{"stack", _osam_stack},
+		{"add", _osam_add},
+		{"nop", _osam_nop},
+		{"sub", _osam_sub},
+		{"mul", _osam_mul},
+		{"div", _osam_div},
+		{"mod", _osam_mod},
+		{"pchar", _osam_pchar},
+		{"pstr", _osam_pstr},
+		{"rotl", _osam_rotl},
+		{"rotr", _osam_rotr},
+		{NULL, NULL}
+	};
+	int i;
+
+	for (i = 0; instruct[i].opcode; i++)
+	{
+		if (_strcmp(instruct[i].opcode, opcode) == 0)
+			break;
+	}
+
+	return (instruct[i].f);
+}

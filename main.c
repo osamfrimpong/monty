@@ -14,13 +14,13 @@ int main(int argc, char *argv[])
 	void (*f)(stack_t **stack, unsigned int line_number);
 	FILE *file_desc;
 	size_t size = 256;
-	ssize_t nlines = 0;
+	ssize_t num_lines = 0;
 	char *lines[2] = {NULL, NULL};
 
 	file_desc = osam_check_input(argc, argv);
 	osam_start_global_var(file_desc, &osam_global_var);
-	nlines = getline(&osam_global_var.text_buffer, &size, file_desc);
-	while (nlines != -1)
+	num_lines = getline(&osam_global_var.text_buffer, &size, file_desc);
+	while (num_lines != -1)
 	{
 		lines[0] = strtok(osam_global_var.text_buffer, " \t\n");
 		if (lines[0] && lines[0][0] != '#')
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 			osam_global_var.arg = strtok(NULL, " \t\n");
 			f(&osam_global_var.head, osam_global_var.curr_line);
 		}
-		nlines = getline(&osam_global_var.text_buffer, &size, file_desc);
+		num_lines = getline(&osam_global_var.text_buffer, &size, file_desc);
 		osam_global_var.curr_line++;
 	}
 
