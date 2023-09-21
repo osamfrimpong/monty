@@ -53,7 +53,7 @@ stack_t *osam_add_node_start(stack_t **head, const int n)
 	if (!temp)
 	{
 		dprintf(2, "Error: malloc failed\n");
-		free_vglo();
+		osam_free_global_var(osam_global_var);
 		exit(EXIT_FAILURE);
 	}
 	temp->n = n;
