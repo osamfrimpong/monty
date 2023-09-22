@@ -1,9 +1,10 @@
 #include "monty.h"
 
 /**
- *osam_add_node_end - add a note at the end of the linked_list_head link list
+ *osam_add_node_end - add a node at the end of the
+ *linked_list_head link list
  *@head: first position of linked list
- *@n: data to store
+ *@n: integer to add
  *Return: a linked_list_head linked list
  */
 stack_t *osam_add_node_end(stack_t **head, const int n)
@@ -38,7 +39,8 @@ stack_t *osam_add_node_end(stack_t **head, const int n)
 }
 
 /**
- *osam_add_node_start - add a note at the begining of the linked_list_head link list
+ *osam_add_node_start - add a node at the
+ *begining of the linked_list_head link list
  *@head: first position of linked list
  *@n: data to store
  *Return: a linked_list_head linked list
