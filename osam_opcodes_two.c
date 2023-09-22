@@ -3,13 +3,13 @@
 /**
  * _osam_queue - sets the format of the data to a queue (FIFO)
  *
- * @doubly: head of the linked list
+ * @linked_list_head: head of the linked list
  * @curr_line: line number;
  * Return: void
  */
-void _osam_queue(stack_t **doubly, unsigned int curr_line)
+void _osam_queue(stack_t **linked_list_head, unsigned int curr_line)
 {
-	(void)doubly;
+	(void)linked_list_head;
 	(void)curr_line;
 
 	osam_global_var.lifo = 0;
@@ -18,13 +18,13 @@ void _osam_queue(stack_t **doubly, unsigned int curr_line)
 /**
  * _osam_stack - sets the format fo the data to a stack (LIFO)
  *
- * @doubly: head of the linked list
+ * @linked_list_head: head of the linked list
  * @curr_line: line number;
  * Return: void
  */
-void _osam_stack(stack_t **doubly, unsigned int curr_line)
+void _osam_stack(stack_t **linked_list_head, unsigned int curr_line)
 {
-	(void)doubly;
+	(void)linked_list_head;
 	(void)curr_line;
 
 	osam_global_var.lifo = 1;
@@ -33,17 +33,17 @@ void _osam_stack(stack_t **doubly, unsigned int curr_line)
 /**
  * _osam_add - adds the top two elements of the stack
  *
- * @doubly: head of the linked list
+ * @linked_list_head: head of the linked list
  * @curr_line: line number;
  * Return: void
  */
-void _osam_add(stack_t **doubly, unsigned int curr_line)
+void _osam_add(stack_t **linked_list_head, unsigned int curr_line)
 {
 	char *message;
 	int m = 0;
 	stack_t *aux = NULL;
 
-	aux = *doubly;
+	aux = *linked_list_head;
 
 	for (; aux != NULL; aux = aux->next, m++)
 		;
@@ -59,38 +59,38 @@ void _osam_add(stack_t **doubly, unsigned int curr_line)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*doubly)->next;
-	aux->n += (*doubly)->n;
-	_osam_pop(doubly, curr_line);
+	aux = (*linked_list_head)->next;
+	aux->n += (*linked_list_head)->n;
+	_osam_pop(linked_list_head, curr_line);
 }
 
 /**
  * _osam_nop - doesn't do anythinhg
  *
- * @doubly: head of the linked list
+ * @linked_list_head: head of the linked list
  * @curr_line: line number;
  * Return: void
  */
-void _osam_nop(stack_t **doubly, unsigned int curr_line)
+void _osam_nop(stack_t **linked_list_head, unsigned int curr_line)
 {
-	(void)doubly;
+	(void)linked_list_head;
 	(void)curr_line;
 }
 
 /**
  * _osam_sub - subtracts the top element to the second top element of the stack
  *
- * @doubly: head of the linked list
+ * @linked_list_head: head of the linked list
  * @curr_line: line number;
  * Return: void
  */
-void _osam_sub(stack_t **doubly, unsigned int curr_line)
+void _osam_sub(stack_t **linked_list_head, unsigned int curr_line)
 {
 	char *message;
 	int m = 0;
 	stack_t *aux = NULL;
 
-	aux = *doubly;
+	aux = *linked_list_head;
 
 	for (; aux != NULL; aux = aux->next, m++)
 		;
@@ -106,7 +106,7 @@ void _osam_sub(stack_t **doubly, unsigned int curr_line)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*doubly)->next;
-	aux->n -= (*doubly)->n;
-	_osam_pop(doubly, curr_line);
+	aux = (*linked_list_head)->next;
+	aux->n -= (*linked_list_head)->n;
+	_osam_pop(linked_list_head, curr_line);
 }

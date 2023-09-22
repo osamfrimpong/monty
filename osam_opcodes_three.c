@@ -3,17 +3,17 @@
 /**
  * _osam_div - divides the second element by the top element of the stack
  *
- * @doubly: head of the linked list
+ * @linked_list_head: head of the linked list
  * @curr_line: line number;
  * Return: void
  */
-void _osam_div(stack_t **doubly, unsigned int curr_line)
+void _osam_div(stack_t **linked_list_head, unsigned int curr_line)
 {
 	char *message;
 	int m = 0;
 	stack_t *aux = NULL;
 
-	aux = *doubly;
+	aux = *linked_list_head;
 
 	for (; aux != NULL; aux = aux->next, m++)
 		;
@@ -29,7 +29,7 @@ void _osam_div(stack_t **doubly, unsigned int curr_line)
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*doubly)->n == 0)
+	if ((*linked_list_head)->n == 0)
 	{
 		message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
 		snprintf(message, OSAM_MAX_BUFFER_SIZE,
@@ -40,25 +40,25 @@ void _osam_div(stack_t **doubly, unsigned int curr_line)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*doubly)->next;
-	aux->n /= (*doubly)->n;
-	_osam_pop(doubly, curr_line);
+	aux = (*linked_list_head)->next;
+	aux->n /= (*linked_list_head)->n;
+	_osam_pop(linked_list_head, curr_line);
 }
 
 /**
  * _osam_mul - multiplies the top element to
  * the second top element of the stack
- * @doubly: head of the linked list
+ * @linked_list_head: head of the linked list
  * @curr_line: line number;
  * Return: void
  */
-void _osam_mul(stack_t **doubly, unsigned int curr_line)
+void _osam_mul(stack_t **linked_list_head, unsigned int curr_line)
 {
 	char *message;
 	int m = 0;
 	stack_t *aux = NULL;
 
-	aux = *doubly;
+	aux = *linked_list_head;
 
 	for (; aux != NULL; aux = aux->next, m++)
 		;
@@ -75,26 +75,26 @@ void _osam_mul(stack_t **doubly, unsigned int curr_line)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*doubly)->next;
-	aux->n *= (*doubly)->n;
-	_osam_pop(doubly, curr_line);
+	aux = (*linked_list_head)->next;
+	aux->n *= (*linked_list_head)->n;
+	_osam_pop(linked_list_head, curr_line);
 }
 
 /**
  * _osam_mod - computes the rest of the division of the second element
  * by the top element of the stack
  *
- * @doubly: head of the linked list
+ * @linked_list_head: head of the linked list
  * @curr_line: line number;
  * Return: void
  */
-void _osam_mod(stack_t **doubly, unsigned int curr_line)
+void _osam_mod(stack_t **linked_list_head, unsigned int curr_line)
 {
 	char *message;
 	int m = 0;
 	stack_t *aux = NULL;
 
-	aux = *doubly;
+	aux = *linked_list_head;
 
 	for (; aux != NULL; aux = aux->next, m++)
 		;
@@ -110,7 +110,7 @@ void _osam_mod(stack_t **doubly, unsigned int curr_line)
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*doubly)->n == 0)
+	if ((*linked_list_head)->n == 0)
 	{
 		message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
 		snprintf(message, OSAM_MAX_BUFFER_SIZE,
@@ -121,22 +121,22 @@ void _osam_mod(stack_t **doubly, unsigned int curr_line)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*doubly)->next;
-	aux->n %= (*doubly)->n;
-	_osam_pop(doubly, curr_line);
+	aux = (*linked_list_head)->next;
+	aux->n %= (*linked_list_head)->n;
+	_osam_pop(linked_list_head, curr_line);
 }
 /**
  * _osam_pchar - print the char value of the first element
  *
- * @doubly: head of the linked list
+ * @linked_list_head: head of the linked list
  * @curr_line: line number;
  * Return: void
  */
-void _osam_pchar(stack_t **doubly, unsigned int curr_line)
+void _osam_pchar(stack_t **linked_list_head, unsigned int curr_line)
 {
 	char *message;
 
-	if (doubly == NULL || *doubly == NULL)
+	if (linked_list_head == NULL || *linked_list_head == NULL)
 	{
 		message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
 		snprintf(message, OSAM_MAX_BUFFER_SIZE,
@@ -146,7 +146,7 @@ void _osam_pchar(stack_t **doubly, unsigned int curr_line)
 		osam_free_global_var(osam_global_var);
 		exit(EXIT_FAILURE);
 	}
-	if ((*doubly)->n < 0 || (*doubly)->n >= 128)
+	if ((*linked_list_head)->n < 0 || (*linked_list_head)->n >= 128)
 	{
 		message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
 		snprintf(message, OSAM_MAX_BUFFER_SIZE,
@@ -156,22 +156,22 @@ void _osam_pchar(stack_t **doubly, unsigned int curr_line)
 		osam_free_global_var(osam_global_var);
 		exit(EXIT_FAILURE);
 	}
-	printf("%c\n", (*doubly)->n);
+	printf("%c\n", (*linked_list_head)->n);
 }
 
 /**
  * _osam_pstr - prints the string of the stack
  *
- * @doubly: head of the linked list
+ * @linked_list_head: head of the linked list
  * @curr_line: line number;
  * Return: void
  */
-void _osam_pstr(stack_t **doubly, unsigned int curr_line)
+void _osam_pstr(stack_t **linked_list_head, unsigned int curr_line)
 {
 	stack_t *aux;
 	(void)curr_line;
 
-	aux = *doubly;
+	aux = *linked_list_head;
 
 	while (aux && aux->n > 0 && aux->n < 128)
 	{

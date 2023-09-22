@@ -60,7 +60,7 @@ typedef struct globals
 {
 	int lifo;
 	unsigned int curr_line;
-	char  *arg;
+	char *arg;
 	stack_t *head;
 	FILE *file_desc;
 	char *text_buffer;
@@ -76,7 +76,7 @@ FILE *osam_check_input(int argc, char *argv[]);
 
 /* find specific opcode function to execute*/
 void (*find_osam_opcode(char *opcode))(stack_t **stack,
-		unsigned int line_number);
+									   unsigned int line_number);
 
 void _osam_push(stack_t **d_linked_list_head_stack, unsigned int line_number);
 void _osam_pall(stack_t **d_linked_list_head_stack, unsigned int line_number);
@@ -96,8 +96,7 @@ void _osam_pstr(stack_t **d_linked_list_head, unsigned int line_number);
 void _osam_rotl(stack_t **d_linked_list_head, unsigned int line_number);
 void _osam_rotr(stack_t **d_linked_list_head, unsigned int line_number);
 
-
-/* helper functions for doubly linked lists manipulation */
+/* helper functions for linked_list_head linked lists manipulation */
 stack_t *osam_add_node_end(stack_t **head, const int n);
 stack_t *osam_add_node_start(stack_t **head, const int n);
 void osam_free_d_linked_list(stack_t *head);

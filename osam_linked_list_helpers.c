@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- *osam_add_node_end - add a note at the end of the doubly link list
+ *osam_add_node_end - add a note at the end of the linked_list_head link list
  *@head: first position of linked list
  *@n: data to store
- *Return: a doubly linked list
+ *Return: a linked_list_head linked list
  */
 stack_t *osam_add_node_end(stack_t **head, const int n)
 {
@@ -38,10 +38,10 @@ stack_t *osam_add_node_end(stack_t **head, const int n)
 }
 
 /**
- *osam_add_node_start - add a note at the begining of the doubly link list
+ *osam_add_node_start - add a note at the begining of the linked_list_head link list
  *@head: first position of linked list
  *@n: data to store
- *Return: a doubly linked list
+ *Return: a linked_list_head linked list
  */
 stack_t *osam_add_node_start(stack_t **head, const int n)
 {
@@ -73,9 +73,9 @@ stack_t *osam_add_node_start(stack_t **head, const int n)
 }
 
 /**
- * osam_free_d_linked_list - frees the doubly linked list
+ * osam_free_d_linked_list - frees the linked_list_head linked list
  *
- * @head: head of the doubly linked list
+ * @head: head of the linked_list_head linked list
  * Return: void
  */
 void osam_free_d_linked_list(stack_t *head)
