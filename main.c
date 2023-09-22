@@ -1,6 +1,6 @@
 #include "monty.h"
 
-osam_monty_global_t osam_global_var = {0, NULL, NULL, NULL, NULL, NULL};
+osam_monty_global_t osam_global_var;
 
 /**
  * main - Entry point
