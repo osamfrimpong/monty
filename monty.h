@@ -12,8 +12,10 @@
 #include <ctype.h>
 
 #define OSAM_MAX_BUFFER_SIZE 1024
+
 /**
- * struct stack_s - d_linked_list_head linked list representation of a stack (or queue)
+ * struct stack_s - d_linked_list_head linked
+ * list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
@@ -23,9 +25,9 @@
  */
 typedef struct stack_s
 {
-    int n;
-    struct stack_s *prev;
-    struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -38,18 +40,18 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-    char *opcode;
-    void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
- * struct globals - global structure to use in the functions
+ * struct globals - structure to store opcode functions
  * @lifo: is stack or queue
- * @cont: current line
+ * @curr_line: current line
  * @arg: second parameter inside the current line
  * @head: d_linked_list_head linked list
- * @fd: file descriptor
- * @buffer: input text
+ * @file_desc: file descriptor
+ * @text_buffer: input text
  *
  * Description: d_linked_list_head linked list node structure
  * for osam-monty
@@ -73,7 +75,8 @@ void osam_start_global_var(FILE *file_desc, osam_monty_global_t *global_var);
 FILE *osam_check_input(int argc, char *argv[]);
 
 /* find specific opcode function to execute*/
-void (*find_osam_opcode(char *opcode))(stack_t **stack, unsigned int line_number);
+void (*find_osam_opcode(char *opcode))(stack_t **stack,
+		unsigned int line_number);
 
 void _osam_push(stack_t **d_linked_list_head_stack, unsigned int line_number);
 void _osam_pall(stack_t **d_linked_list_head_stack, unsigned int line_number);

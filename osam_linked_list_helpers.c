@@ -20,7 +20,7 @@ stack_t *osam_add_node_end(stack_t **head, const int n)
 		exit(EXIT_FAILURE);
 	}
 	temporary_node->n = n;
-	
+
 	if (*head == NULL)
 	{
 		temporary_node->next = *head;

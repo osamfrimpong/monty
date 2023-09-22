@@ -9,10 +9,10 @@
  */
 void _osam_queue(stack_t **doubly, unsigned int curr_line)
 {
-    (void)doubly;
-    (void)curr_line;
+	(void)doubly;
+	(void)curr_line;
 
-    osam_global_var.lifo = 0;
+	osam_global_var.lifo = 0;
 }
 
 /**
@@ -24,10 +24,10 @@ void _osam_queue(stack_t **doubly, unsigned int curr_line)
  */
 void _osam_stack(stack_t **doubly, unsigned int curr_line)
 {
-    (void)doubly;
-    (void)curr_line;
+	(void)doubly;
+	(void)curr_line;
 
-    osam_global_var.lifo = 1;
+	osam_global_var.lifo = 1;
 }
 
 /**
@@ -39,28 +39,29 @@ void _osam_stack(stack_t **doubly, unsigned int curr_line)
  */
 void _osam_add(stack_t **doubly, unsigned int curr_line)
 {
-    char *message;
-    int m = 0;
-    stack_t *aux = NULL;
+	char *message;
+	int m = 0;
+	stack_t *aux = NULL;
 
-    aux = *doubly;
+	aux = *doubly;
 
-    for (; aux != NULL; aux = aux->next, m++)
-        ;
+	for (; aux != NULL; aux = aux->next, m++)
+		;
 
-    if (m < 2)
-    {
-        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
-        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't add, stack too short\n", curr_line);
-        osam_print_out(message, 2);
-        free(message);
-        osam_free_global_var(osam_global_var);
-        exit(EXIT_FAILURE);
-    }
+	if (m < 2)
+	{
+		message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+		snprintf(message, OSAM_MAX_BUFFER_SIZE,
+				"L%u: can't add, stack too short\n", curr_line);
+		osam_print_out(message, 2);
+		free(message);
+		osam_free_global_var(osam_global_var);
+		exit(EXIT_FAILURE);
+	}
 
-    aux = (*doubly)->next;
-    aux->n += (*doubly)->n;
-    _osam_pop(doubly, curr_line);
+	aux = (*doubly)->next;
+	aux->n += (*doubly)->n;
+	_osam_pop(doubly, curr_line);
 }
 
 /**
@@ -72,8 +73,8 @@ void _osam_add(stack_t **doubly, unsigned int curr_line)
  */
 void _osam_nop(stack_t **doubly, unsigned int curr_line)
 {
-    (void)doubly;
-    (void)curr_line;
+	(void)doubly;
+	(void)curr_line;
 }
 
 /**
@@ -85,26 +86,27 @@ void _osam_nop(stack_t **doubly, unsigned int curr_line)
  */
 void _osam_sub(stack_t **doubly, unsigned int curr_line)
 {
-    char *message;
-    int m = 0;
-    stack_t *aux = NULL;
+	char *message;
+	int m = 0;
+	stack_t *aux = NULL;
 
-    aux = *doubly;
+	aux = *doubly;
 
-    for (; aux != NULL; aux = aux->next, m++)
-        ;
+	for (; aux != NULL; aux = aux->next, m++)
+		;
 
-    if (m < 2)
-    {
-        message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
-        snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: can't sub, stack too short\n", curr_line);
-        osam_print_out(message, 2);
-        free(message);
-        osam_free_global_var(osam_global_var);
-        exit(EXIT_FAILURE);
-    }
+	if (m < 2)
+	{
+		message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+		snprintf(message, OSAM_MAX_BUFFER_SIZE,
+				"L%u: can't sub, stack too short\n", curr_line);
+		osam_print_out(message, 2);
+		free(message);
+		osam_free_global_var(osam_global_var);
+		exit(EXIT_FAILURE);
+	}
 
-    aux = (*doubly)->next;
-    aux->n -= (*doubly)->n;
-    _osam_pop(doubly, curr_line);
+	aux = (*doubly)->next;
+	aux->n -= (*doubly)->n;
+	_osam_pop(doubly, curr_line);
 }

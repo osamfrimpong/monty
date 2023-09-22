@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	size_t size = 256;
 	ssize_t num_lines = 0;
 	char *splitted_lines[2] = {NULL, NULL};
-    char *message;
+	char *message;
 
 	file_desc = osam_check_input(argc, argv);
 	osam_start_global_var(file_desc, &osam_global_var);
@@ -29,10 +29,11 @@ int main(int argc, char *argv[])
 			f = find_osam_opcode(splitted_lines[0]);
 			if (!f)
 			{
-                message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
-                snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: unknown instruction %s\n", osam_global_var.curr_line,splitted_lines[0]);
-		        osam_print_out(message, 2);
-                free(message);
+				message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
+				snprintf(message, OSAM_MAX_BUFFER_SIZE, "L%u: unknown instruction %s\n",
+						osam_global_var.curr_line, splitted_lines[0]);
+				osam_print_out(message, 2);
+				free(message);
 				osam_free_global_var(osam_global_var);
 				exit(EXIT_FAILURE);
 			}

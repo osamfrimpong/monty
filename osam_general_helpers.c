@@ -2,9 +2,10 @@
 
 /**
  * osam_print_out - prints to terminal
- * @error_message: pointer to message to write
+ * @message: pointer to message to write
+ * @message_type: type of output to terminal
  * Return: void
-*/
+ */
 
 void osam_print_out(char *message, int message_type)
 {
@@ -13,6 +14,7 @@ void osam_print_out(char *message, int message_type)
 
 /**
  * osam_free_global_var - frees the global variables
+ * @global_var: global variable to free
  * Return: void
  */
 void osam_free_global_var(osam_monty_global_t global_var)
@@ -23,8 +25,8 @@ void osam_free_global_var(osam_monty_global_t global_var)
 }
 
 /**
- * start_vglo - initializes the global variables
- *
+ * osam_start_global_var - initializes the global variables
+ * @global_var: pointer to global variable
  * @file_desc: file descriptor
  * Return: void
  */
@@ -39,9 +41,8 @@ void osam_start_global_var(FILE *file_desc, osam_monty_global_t *global_var)
 }
 
 /**
- * check_input - checks if the file exists and if the file can
+ * osam_check_input - checks if the file exists and if the file can
  * be opened
- *
  * @argc: argument count
  * @argv: argument vector
  * Return: file struct
@@ -62,7 +63,8 @@ FILE *osam_check_input(int argc, char *argv[])
 	if (file_desc == NULL)
 	{
 		message = malloc(sizeof(char) * OSAM_MAX_BUFFER_SIZE);
-		snprintf(message, OSAM_MAX_BUFFER_SIZE, "Error: Can't open file %s\n", argv[1]);
+		snprintf(message, OSAM_MAX_BUFFER_SIZE,
+				"Error: Can't open file %s\n", argv[1]);
 		osam_print_out(message, 2);
 		free(message);
 		exit(EXIT_FAILURE);
@@ -73,12 +75,11 @@ FILE *osam_check_input(int argc, char *argv[])
 
 /**
  * find_osam_opcode - selects the correct opcode to execute
- *
- * @opcode: opcode passed
- *
+ * @line_number: line number
  * Return: pointer to the function that executes the opcode
  */
-void (*find_osam_opcode(char *opcode))(stack_t **stack, unsigned int line_number)
+void (*find_osam_opcode(char *opcode))(stack_t **stack,
+		unsigned int line_number)
 {
 	instruction_t instruct[] = {
 		{"push", _osam_push},
