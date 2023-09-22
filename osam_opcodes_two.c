@@ -41,11 +41,11 @@ void _osam_add(stack_t **linked_list_head, unsigned int curr_line)
 {
 	char *message;
 	int m = 0;
-	stack_t *aux = NULL;
+	stack_t *new_node = NULL;
 
-	aux = *linked_list_head;
+	new_node = *linked_list_head;
 
-	for (; aux != NULL; aux = aux->next, m++)
+	for (; new_node != NULL; new_node = new_node->next, m++)
 		;
 
 	if (m < 2)
@@ -59,8 +59,8 @@ void _osam_add(stack_t **linked_list_head, unsigned int curr_line)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*linked_list_head)->next;
-	aux->n += (*linked_list_head)->n;
+	new_node = (*linked_list_head)->next;
+	new_node->n += (*linked_list_head)->n;
 	_osam_pop(linked_list_head, curr_line);
 }
 
@@ -88,11 +88,11 @@ void _osam_sub(stack_t **linked_list_head, unsigned int curr_line)
 {
 	char *message;
 	int m = 0;
-	stack_t *aux = NULL;
+	stack_t *new_node = NULL;
 
-	aux = *linked_list_head;
+	new_node = *linked_list_head;
 
-	for (; aux != NULL; aux = aux->next, m++)
+	for (; new_node != NULL; new_node = new_node->next, m++)
 		;
 
 	if (m < 2)
@@ -106,7 +106,7 @@ void _osam_sub(stack_t **linked_list_head, unsigned int curr_line)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*linked_list_head)->next;
-	aux->n -= (*linked_list_head)->n;
+	new_node = (*linked_list_head)->next;
+	new_node->n -= (*linked_list_head)->n;
 	_osam_pop(linked_list_head, curr_line);
 }

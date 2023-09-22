@@ -9,27 +9,27 @@
  */
 void _osam_rotl(stack_t **linked_list_head, unsigned int curr_line)
 {
-	stack_t *aux1 = NULL;
-	stack_t *aux2 = NULL;
-	(void)curr_line;
+    stack_t *aux1 = NULL;
+    stack_t *aux2 = NULL;
+    (void)curr_line;
 
-	if (*linked_list_head == NULL)
-		return;
+    if (*linked_list_head == NULL)
+        return;
 
-	if ((*linked_list_head)->next == NULL)
-		return;
+    if ((*linked_list_head)->next == NULL)
+        return;
 
-	aux1 = (*linked_list_head)->next;
-	aux2 = *linked_list_head;
+    aux1 = (*linked_list_head)->next;
+    aux2 = *linked_list_head;
 
-	for (; aux2->next != NULL; aux2 = aux2->next)
-		;
+    for (; aux2->next != NULL; aux2 = aux2->next)
+        ;
 
-	aux1->prev = NULL;
-	aux2->next = *linked_list_head;
-	(*linked_list_head)->next = NULL;
-	(*linked_list_head)->prev = aux2;
-	*linked_list_head = aux1;
+    aux1->prev = NULL;
+    aux2->next = *linked_list_head;
+    (*linked_list_head)->next = NULL;
+    (*linked_list_head)->prev = aux2;
+    *linked_list_head = aux1;
 }
 
 /**
@@ -41,23 +41,23 @@ void _osam_rotl(stack_t **linked_list_head, unsigned int curr_line)
  */
 void _osam_rotr(stack_t **linked_list_head, unsigned int curr_line)
 {
-	stack_t *aux = NULL;
-	(void)curr_line;
+    stack_t *new_node = NULL;
+    (void)curr_line;
 
-	if (*linked_list_head == NULL)
-		return;
+    if (*linked_list_head == NULL)
+        return;
 
-	if ((*linked_list_head)->next == NULL)
-		return;
+    if ((*linked_list_head)->next == NULL)
+        return;
 
-	aux = *linked_list_head;
+    new_node = *linked_list_head;
 
-	for (; aux->next != NULL; aux = aux->next)
-		;
+    for (; new_node->next != NULL; new_node = new_node->next)
+        ;
 
-	aux->prev->next = NULL;
-	aux->next = *linked_list_head;
-	aux->prev = NULL;
-	(*linked_list_head)->prev = aux;
-	*linked_list_head = aux;
+    new_node->prev->next = NULL;
+    new_node->next = *linked_list_head;
+    new_node->prev = NULL;
+    (*linked_list_head)->prev = new_node;
+    *linked_list_head = new_node;
 }

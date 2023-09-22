@@ -11,11 +11,11 @@ void _osam_div(stack_t **linked_list_head, unsigned int curr_line)
 {
 	char *message;
 	int m = 0;
-	stack_t *aux = NULL;
+	stack_t *new_node = NULL;
 
-	aux = *linked_list_head;
+	new_node = *linked_list_head;
 
-	for (; aux != NULL; aux = aux->next, m++)
+	for (; new_node != NULL; new_node = new_node->next, m++)
 		;
 
 	if (m < 2)
@@ -40,8 +40,8 @@ void _osam_div(stack_t **linked_list_head, unsigned int curr_line)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*linked_list_head)->next;
-	aux->n /= (*linked_list_head)->n;
+	new_node = (*linked_list_head)->next;
+	new_node->n /= (*linked_list_head)->n;
 	_osam_pop(linked_list_head, curr_line);
 }
 
@@ -56,11 +56,11 @@ void _osam_mul(stack_t **linked_list_head, unsigned int curr_line)
 {
 	char *message;
 	int m = 0;
-	stack_t *aux = NULL;
+	stack_t *new_node = NULL;
 
-	aux = *linked_list_head;
+	new_node = *linked_list_head;
 
-	for (; aux != NULL; aux = aux->next, m++)
+	for (; new_node != NULL; new_node = new_node->next, m++)
 		;
 
 	if (m < 2)
@@ -75,8 +75,8 @@ void _osam_mul(stack_t **linked_list_head, unsigned int curr_line)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*linked_list_head)->next;
-	aux->n *= (*linked_list_head)->n;
+	new_node = (*linked_list_head)->next;
+	new_node->n *= (*linked_list_head)->n;
 	_osam_pop(linked_list_head, curr_line);
 }
 
@@ -92,11 +92,11 @@ void _osam_mod(stack_t **linked_list_head, unsigned int curr_line)
 {
 	char *message;
 	int m = 0;
-	stack_t *aux = NULL;
+	stack_t *new_node = NULL;
 
-	aux = *linked_list_head;
+	new_node = *linked_list_head;
 
-	for (; aux != NULL; aux = aux->next, m++)
+	for (; new_node != NULL; new_node = new_node->next, m++)
 		;
 
 	if (m < 2)
@@ -121,8 +121,8 @@ void _osam_mod(stack_t **linked_list_head, unsigned int curr_line)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*linked_list_head)->next;
-	aux->n %= (*linked_list_head)->n;
+	new_node = (*linked_list_head)->next;
+	new_node->n %= (*linked_list_head)->n;
 	_osam_pop(linked_list_head, curr_line);
 }
 /**
@@ -168,15 +168,15 @@ void _osam_pchar(stack_t **linked_list_head, unsigned int curr_line)
  */
 void _osam_pstr(stack_t **linked_list_head, unsigned int curr_line)
 {
-	stack_t *aux;
+	stack_t *new_node;
 	(void)curr_line;
 
-	aux = *linked_list_head;
+	new_node = *linked_list_head;
 
-	while (aux && aux->n > 0 && aux->n < 128)
+	while (new_node && new_node->n > 0 && new_node->n < 128)
 	{
-		printf("%c", aux->n);
-		aux = aux->next;
+		printf("%c", new_node->n);
+		new_node = new_node->next;
 	}
 
 	printf("\n");

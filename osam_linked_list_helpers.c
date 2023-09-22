@@ -9,7 +9,7 @@
  */
 stack_t *osam_add_node_end(stack_t **head, const int n)
 {
-	stack_t *temporary_node, *aux;
+	stack_t *temporary_node, *new_node;
 
 	if (head == NULL)
 		return (NULL);
@@ -29,13 +29,13 @@ stack_t *osam_add_node_end(stack_t **head, const int n)
 		*head = temporary_node;
 		return (*head);
 	}
-	aux = *head;
-	while (aux->next)
-		aux = aux->next;
-	temporary_node->next = aux->next;
-	temporary_node->prev = aux;
-	aux->next = temporary_node;
-	return (aux->next);
+	new_node = *head;
+	while (new_node->next)
+		new_node = new_node->next;
+	temporary_node->next = new_node->next;
+	temporary_node->prev = new_node;
+	new_node->next = temporary_node;
+	return (new_node->next);
 }
 
 /**
